@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>TypeBattle トップ画面</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-blue-100 to-blue-300 text-gray-800">
+  <h1 class="text-4xl font-bold mb-6">オンラインタイピング対戦ゲーム</h1>
+
+  <!-- ユーザー名入力欄 -->
+  <input
+    id="username"
+    type="text"
+    placeholder="ユーザー名を入力"
+    class="mb-4 px-4 py-2 rounded border w-64"
+  />
+
+  <!-- エラー表示欄 -->
+  <p id="error" class="text-red-500 text-sm mb-2 hidden">※ユーザー名を入力してください</p>
+
+  <!-- 対戦開始ボタン -->
+  <button
+    id="startButton"
+    class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600"
+  >
+    対戦を開始する
+  </button>
+
+  <p class="mt-8 text-sm text-gray-600">© 2025 TypeBattle</p>
+
+  <script>
+    document.getElementById("startButton").addEventListener("click", function () {
+      const input = document.getElementById("username");
+      const error = document.getElementById("error");
+      const name = input.value.trim();
+
+      if (name === "") {
+        error.classList.remove("hidden");
+      } else {
+        error.classList.add("hidden");
+
+        // ★ localStorage に保存する
+        try {
+          localStorage.setItem("username", name);
+        } catch (e) {
+          alert("ユーザー名の保存に失敗しました：" + e);
+        }
+
+        // waiting.html に遷移
+        location.href = "waiting.html";
+      }
+    });
+  </script>
+</body>
+</html>
