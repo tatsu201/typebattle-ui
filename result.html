@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>結果発表 | TypeBattle</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center bg-gray-100 text-gray-800">
+
+  <h1 class="text-3xl font-bold mb-6">🎉 結果発表</h1>
+
+  <div class="bg-white shadow-md rounded p-6 w-80 text-center mb-6">
+    <p class="text-xl font-semibold mb-2">あなたのスコア</p>
+    <p class="text-2xl text-blue-600 font-bold mb-4" id="score">-- 点</p>
+
+    <p class="text-xl font-semibold mb-2">WPM（1分あたりの打鍵数）</p>
+    <p class="text-xl text-green-600 font-bold mb-4" id="wpm">-- WPM</p>
+
+    <p class="text-xl font-semibold mb-2">勝敗結果</p>
+    <p class="text-xl font-bold text-red-500" id="result">--</p>
+  </div>
+
+  <button onclick="goToTop()" class="bg-gray-400 hover:bg-gray-500 text-white px-6 py-2 rounded">
+    トップに戻る
+  </button>
+
+  <script>
+    // 仮のデータを表示（将来的に動的に設定）
+    document.getElementById("score").textContent = "92 点";
+    document.getElementById("wpm").textContent = "55 WPM";
+    document.getElementById("result").textContent = "勝ち";
+
+    function goToTop() {
+      window.location.href = "top.html";
+    }
+  </script>
+
+</body>
+</html>
